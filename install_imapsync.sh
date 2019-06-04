@@ -19,13 +19,14 @@ apt-get install libauthen-ntlm-perl \
      libreadonly-perl libsys-meminfo-perl libterm-readkey-perl \
      libtest-fatal-perl libtest-mock-guard-perl libtest-pod-perl \
      libtest-requires-perl libtest-simple-perl libunicode-string-perl \
-     libssl-dev
+     libssl-dev libperl-dev
 
 # install required Python modules using CPAN
 cpanm Mail::IMAPClient JSON::WebToken Test::MockObject
 cpanm Unicode::String Data::Uniqid Crypt::OpenSSL::RSA Crypt::OpenSSL::Random JSON::WebToken::Crypt::RSA Package::Stash::XS Regexp::Common
 
 # install imapsync
+cd /usr/src/
 git clone https://github.com/imapsync/imapsync.git
 cd imapsync
 mkdir -p dist
