@@ -1,5 +1,7 @@
 # imapsync
 
+* Tested on Debian 9
+
 ## Install imapsync
 ```
 bash <( curl -sSL https://raw.githubusercontent.com/sonnymeijer/imapsync/master/install_imapsync.sh )
