@@ -16,10 +16,10 @@ fi
 echo -e -n "\n[ \e[92mEnter password for $1 \e[39m]: "
 read source_password
 
-
 echo -e -n "\n[ \e[92mEnter password for $3 \e[39m]: "
 read destination_password
 
+# start sync
 /usr/bin/imapsync --host1 $2  \
        --user1 $1           \
        --password1 ${source_password}         \
