@@ -1,0 +1,30 @@
+#!/bin/bash
+
+source_mailbox="$1"
+source_server="$2"
+
+destination_mailbox="$3"
+destination_server="$4"
+
+# check if variables are not empty
+if [[ -z ${source_mailbox} || -z ${source_server} || -z ${destination_mailbox} || -z ${destination_server} ]]; then
+    echo -e "\n[ Error ] Execute as: /usr/local/bin/syncmail <source@domain.com> <sourceserver.domain.com> <destination@domain.com> <destinationserver.domain.com> \n"
+    exit 1
+fi
+
+# ask for passwords
+echo -e -n "\n[ \e[92mEnter password for $1 \e[39m]: "
+read source_password
+
+
+echo -e -n "\n[ \e[92mEnter password for $3 \e[39m]: "
+read destination_password
+
+/usr/bin/imapsync --host1 $2  \
+       --user1 $1           \
+       --password1 ${source_password}         \
+       --ssl1                \
+       --host2 $4    \
+       --user2 $3         \
+       --password2 ${destination_password}  \
+       --ssl2
